@@ -1,4 +1,4 @@
-var allButtons = $('#buttons>span')
+var allButtons = $('#buttons>span') //获取所有按钮
 for (let i = 0; i < allButtons.length; i++) {
     $(allButtons[i]).on('click', function (x) {
         let index = $(x.currentTarget).index()
@@ -6,8 +6,8 @@ for (let i = 0; i < allButtons.length; i++) {
         $('#images').css({
             transform: 'translate(' + p + 'px)'
         })
-        n=index//点击时，需要重置n
-        addAndRemoveClass(allButtons.eq(n))
+        n = index //点击时，需要重置n 
+        addAndRemoveClass(allButtons.eq(n)) //$allButtons是jquery对象, 但是allButtons[0, 1, 3, 4...] 是具体的标签就不是jquery对象了
     })
 }
 
@@ -24,7 +24,7 @@ $('#window').on('mouseenter', function () {
 })
 
 $('#window').on('mouseleave', function () {
-  timerId=setTimer(allButtons)
+    timerId = setTimer(allButtons) //因为我们clear的是timeid，所以mouseleave的时候，要把setInterval赋值给timeid
 })
 
 function setTimer(allButtons) {
